@@ -17,13 +17,13 @@ SUFFIX=""
 
 select_m2() {
 	
-	local current_m2=$(readlink  ~/.m2|rev|cut -d "/" -f1|rev|cut -d"_" -f 2)
+	local current_m2=$(readlink  ~/.m2|rev|cut -d "/" -f1|rev|cut -d"_" -f 2-)
 
 	echo "0) Create new M2"
 	local idx=1
 	for file in $(ls -d ~/.m2_*)
 	do 
-		local val=$(echo $file|rev|cut -d "/" -f1|rev|cut -d"_" -f 2);
+		local val=$(echo $file|rev|cut -d "/" -f1|rev|cut -d"_" -f 2-);
 		#echo $file
 		if [ "$val" != '.m2' ]
 		then

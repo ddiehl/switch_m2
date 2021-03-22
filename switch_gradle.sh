@@ -20,13 +20,13 @@ FOLDER_DESC=gradle
 
 select_folder() {
 	
-	local current_link=$(readlink  ~/$FOLDER_TYPE|rev|cut -d "/" -f1|rev|cut -d"_" -f 2)
+	local current_link=$(readlink  ~/$FOLDER_TYPE|rev|cut -d "/" -f1|rev|cut -d"_" -f 2- )
 
 	echo "0) Create new $FOLDER_DESC"
 	local idx=1
 	for file in $(ls -d ~/"$FOLDER_TYPE"_*)
 	do 
-		local val=$(echo $file|rev|cut -d "/" -f1|rev|cut -d"_" -f 2);
+		local val=$(echo $file|rev|cut -d "/" -f1|rev|cut -d"_" -f 2-);
 		#echo $file
 		if [ "$val" != "$FOLDER_TYPE" ]
 		then
