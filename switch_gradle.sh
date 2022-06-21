@@ -5,12 +5,12 @@ echo "
  # 
  #   ____               _ _        ____          _ _       _     
  #  / ___|_ __ __ _  __| | | ___  / ___|_      _(_) |_ ___| |__  
- # | |  _| '__/ _  |/ _  | |/ _ \ \___ \ \ /\ / / | __/ __| '_ \ 
+ # | |  _| '__/ _  |/ _  | |/ _ \ \___ \ \ /\ / / | __/ __| '_ \\
  # | |_| | | | (_| | (_| | |  __/  ___) \ V  V /| | || (__| | | |
  #  \____|_|  \__,_|\__,_|_|\___| |____/ \_/\_/ |_|\__\___|_| |_|
  #                                                              
  #
- # V1.0
+ # V1.1
  #====================================================================
                                                
 "
@@ -84,15 +84,15 @@ else
 fi
 
 
-CURRENT_FOLDER=~/${FOLDER_TYPE}_$SUFFIX
-echo "current_folder = $CURRENT_FOLDER"
-if [ ! -d $CURRENT_FOLDER ]; then
-   echo "$CURRENT_FOLDER does not exist, creating it"
-   mkdir $CURRENT_FOLDER
+NEW_FOLDER=~/${FOLDER_TYPE}_$SUFFIX
+echo "Selected folder = $NEW_FOLDER"
+if [ ! -d $NEW_FOLDER ]; then
+   echo "$NEW_FOLDER does not exist, creating it"
+   mkdir $NEW_FOLDER
 fi
 
-echo "Switching .$FOLDER_TYPE to $CURRENT_FOLDER"
-mv ~/$FOLDER_TYPE ~/${FOLDER_TYPE}_backup
-ln -s "$CURRENT_FOLDER" ~/$FOLDER_TYPE
-echo "Switch complete $FOLDER_DESC now points to $CURRENT_FOLDER"
+echo "Switching $FOLDER_TYPE to $NEW_FOLDER"
+rm ~/$FOLDER_TYPE
+ln -s "~/$NEW_FOLDER" ~/$FOLDER_TYPE
+echo "Switch complete $FOLDER_DESC now points to $NEW_FOLDER"
 
