@@ -93,6 +93,6 @@ fi
 
 echo "Switching $FOLDER_TYPE to $NEW_FOLDER"
 rm ~/$FOLDER_TYPE
-ln -s "~/$NEW_FOLDER" ~/$FOLDER_TYPE
+ln -s $NEW_FOLDER ~/$FOLDER_TYPE
 echo "Switch complete $FOLDER_DESC now points to $NEW_FOLDER"
 
