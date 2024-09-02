@@ -9,13 +9,13 @@ echo "
  # | |  | |/ /_   ____) \ V  V /| | || (__| | | |
  # |_|  |_|____| |_____/ \_/\_/ |_|\__\___|_| |_|
  #                                              
- # V2.1
+ # V2.2
  #================================================
                                                
 "
 SUFFIX=""
-FOLDER_TYPE=.m2
-FOLDER_DESC=Maven
+FOLDER_TYPE=".m2"
+FOLDER_DESC="Maven"
 
 select_folder() {
 	
@@ -48,11 +48,10 @@ select_folder() {
       else 
       	if [ $selected = 0 ]
       	then
-			read -p "Enter $FOLDER_DESC suffix (name you want to call it): " NEW_FOLDER
-			echo $NEW_FOLDER
-			SUFFIX=$NEW_FOLDER
+				read -p "Enter $FOLDER_DESC suffix (name you want to call it): " NEW_FOLDER
+				SUFFIX=$NEW_FOLDER
       	else 
-		   SUFFIX=${items[$selected]}
+		   	SUFFIX=${items[$selected]}
    			echo "Selected $FOLDER_DESC: $SUFFIX"
       	fi
         break;
@@ -82,8 +81,7 @@ else
 fi
 
 
-
-NEW_FOLDER=~/$FOLDER_TYPE_$SUFFIX
+NEW_FOLDER=~/$FOLDER_TYPE"_"$SUFFIX
 if [ ! -d $NEW_FOLDER ]; then
    echo "$NEW_FOLDER does not exist, creating it"
    mkdir $NEW_FOLDER
